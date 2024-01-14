@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+    background-color:  #f2d1b3; /* Cream color */
+}
+
+.navbar {
+    height: 200px;
+    background-color: #0B2027;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px; /* Added padding to the navbar */
+}
+
+.navbar h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 40px;
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    margin-right: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 25px;
+    transition: .3s ease all;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.nav-links a:hover {
+    color: cyan;
+    cursor: pointer;
+}
+
+.shifted-title {
+    margin-left: 40px;
+}
+
+.panel {
+    background-image: url("background.jpg");
+    width: 100%;
+    min-height: 5000px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: black;
+}
+
+.container {
+    width: 100%;
+    min-height: 500px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container h1 {
+    margin-top: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+    color: #1f1e1e;
+}
+
+.search {
+    margin-top:50px;
+    margin-right: center; /* Adjust margin to move the search bar to the top right */
+    display: flex;
+    align-items: center;
+    border: 3px solid rgb(20, 20, 20);
+}
+
+.search-input {
+    height: 45px;
+    width: 500px;
+    font-size: 1rem;
+   /* border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;*/
+}
+
+.search-icon {
+    height: 28px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    background-color: #fff;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #1f1e1e;
+}
+.panel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ensure the panel takes at least the full viewport height */
+}
+
+.container {
+    text-align: center;
+}

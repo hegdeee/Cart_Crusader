@@ -1,0 +1,95 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .product-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .product-details {
+            width: 48%; /* Adjust the width as needed */
+        }
+
+        .product-image {
+            width: 48%; /* Adjust the width as needed */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .con{
+            text-align: center;
+        }
+    </style>
+    <!-- Add your head content here -->
+</head>
+<hr>
+
+<div class="product-container">
+    <!-- Amazon Data -->
+    <div class="product-details" style="margin-right: 60px;">
+        <h1>Amazon Data:</h1>
+        {% if amazon_data %}
+            <h3>Product Title: {{ amazon_data.title }}</h3>
+            <h3>Product Price: {{ amazon_data.product_price }}</h3>
+            <h3>Product Rating: {{ amazon_data.rating }}</h3>
+        </div>
+        <div class="product-image">
+            <img src="{{ amazon_data.image_url }}" alt="Product Image" width="200px" height="200px">
+        </div>
+        {% else %}
+            <p>No Amazon data available.</p>
+        {% endif %}
+
+    <!-- Flipkart Data -->
+    <div class="product-details" style="margin-right: 60px;">
+        <h1>Flipkart Data:</h1>
+        {% if flipkart_data %}
+            <h3>Product Title: {{ flipkart_data.title }}</h3>
+            <h3>Product Price: {{ flipkart_data.product_price }}</h3>
+            <h3>Product Rating: {{ flipkart_data.rating }}</h3>
+        </div>
+        <div class="product-image">
+            <img src="{{ flipkart_data.image_url }}" alt="Product Image" width="200px" height="200px">
+        </div>
+        {% else %}
+            <p>No Flipkart data available.</p>
+        {% endif %}
+    </div>
+
+<hr>
+<div class="product-container" style="position: center;">
+    <div class="product-details">
+        <h1>JioMart Data:</h1>
+        {% if jiomart_data %}
+            <h3>Product Title: {{ jiomart_data.title }}</h3>
+            <h3>Product Price: {{ jiomart_data.product_price }}</h3>
+            <h3>Product Rating: {{ jiomart_data.rating }}</h3>
+        </div>
+        <div class="product-image">
+            <!-- <img src="{{ jiomart_data.image_url }}" alt="Product Image" width="200px" height="200px"> -->
+        </div>
+        {% else %}
+            <p>No JioMart data available.</p>
+        {% endif %}
+    </div>
+</div>
+<hr>
+<div class="con">
+<h1>Price Compare</h1>
+{% if smallestPlatform and smallestPrice %}
+    <h2>Smallest Price Platform: {{ smallestPlatform }}</h2>
+    <h2>Smallest Price: {{ smallestPrice }}</h2>
+    <h2>You can buy your product from {{ smallestPlatform }}</h2>
+{% else %}
+    <p>No price comparison results available.</p>
+{% endif %}
+</div>
+</body>
+</body>
+</html>

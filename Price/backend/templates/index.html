@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-pz1wQvV7Nef89e8gI7wP0PoPAJML">
+    <title>Cart Crusader</title>
+</head>
+<body>
+
+<header>
+    <div class="navbar">
+        <h1 class="shifted-title">
+            <img src="{{ url_for('static', filename='images/123.jpeg') }}" width="100" height="100">
+
+
+            Cart Crusader</h1>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <!-- <a href="#">Services</a> -->
+            <a href="#">Contact</a>
+            <a href="#">Sign Up</a>
+        </div>
+    </div>
+
+    <div class="panel">
+        <div class="container">
+            <h1>Enter the product to be Searched for which you get the best Deal</h1>
+            <form id="searchForm">
+                <input type="text" placeholder="Search here" class="search-input" id="productNameInput">
+                <button type="submit" class="search-icon">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+</header>
+<script>
+    document.getElementById('searchForm').addEventListener('submit', function (event) {
+        event.preventDefault();  // Prevent the default form submission
+
+        // Get the product name from the input field
+        var productName = document.getElementById('productNameInput').value;
+
+        // Send the product name to the server using fetch
+        fetch('/search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ productName: productName }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Server response:', data);
+
+            // You can handle the server response as needed
+            // For example, you might redirect the user to the result link
+            window.location.href = data.resultLink;
+        })
+        .catch(error => {
+            console.error('Error sending data to server:', error);
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
